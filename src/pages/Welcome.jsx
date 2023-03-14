@@ -1,7 +1,10 @@
 import splashImage from "../assets/images/splash-image.jpg"
 import { Link } from "react-router-dom";
+import useDocumentTitle from "../hooks/useDocumentTitle";
 
 export default function Welcome() {
+  useDocumentTitle({ title: "Welcome" })
+
   return (
     <div className="grid h-[100dvh]">
       <img src={splashImage} alt="Image of guy dancing made with splash paint." className="grid-area-1 h-full object-cover" />
