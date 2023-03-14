@@ -5,7 +5,7 @@ export default function Layout() {
   return (
     <>
       <Navigation />
-      <main>
+      <main className="w-full">
         <Outlet />
       </main>
     </>

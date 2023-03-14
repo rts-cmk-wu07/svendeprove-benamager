@@ -9,7 +9,7 @@ export default function Navigation() {
   const isDisplayed = !hideOnThesePaths.includes(location.pathname)
 
   return isDisplayed ? (
-    <header className="fixed bottom-0 w-full drop-shadow-[0_-3px_4px_rgba(0,0,0,0.25)]">
+    <header className="fixed bottom-0 w-full drop-shadow-[0_-3px_4px_rgba(0,0,0,0.25)] z-10">
       <nav className="bg-white flex justify-between px-6 pb-1">
         <NavLink to="/activities" className="border border-black p-2 m-3 rounded-[50%]">
           <FiHome size="24" />

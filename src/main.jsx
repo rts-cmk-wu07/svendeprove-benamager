@@ -29,7 +29,7 @@ const router = createBrowserRouter([
         element: <Activities />
       },
       {
-        path: "/activity-details",
+        path: "/activity-details/:activityId?",
         element: <ActivityDetails />
       },
       {

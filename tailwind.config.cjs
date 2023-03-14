@@ -21,6 +21,9 @@ module.exports = {
         lg: "1.5rem",
         xl: "2.25rem",
       },
+      gridTemplateColumns: {
+        'auto-200': 'repeat(auto-fill, minmax(240px, 1fr))',
+      },
     },
   },
   plugins: [

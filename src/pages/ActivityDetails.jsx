@@ -1,5 +1,14 @@
+import { useLocation } from "react-router-dom";
+
 export default function ActivityDetails() {
+  const location = useLocation();
+  const { activityData: locationActivityData } = location.state || null; // get passed data from previous page
+
+  console.log(locationActivityData)
+
   return (
-    <div>ActivityDetails</div>
+    <section>
+      <img src="" alt="" />
+    </section>
   );
 }
