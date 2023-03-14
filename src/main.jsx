@@ -10,7 +10,7 @@ import Welcome from "./pages/Welcome";
 import Activities from "./pages/Activities";
 import ActivityDetails from "./pages/ActivityDetails";
 import Search from "./pages/Search";
-import Calender from "./pages/Calender";
+import Calendar from "./pages/Calendar";
 import TeamOverview from "./pages/TeamOverview";
 import LogIn from "./pages/Login";
 import NotFound from "./pages/NotFound";
@@ -37,8 +37,8 @@ const router = createBrowserRouter([
         element: <Search />
       },
       {
-        path: "/calender",
-        element: <Calender />
+        path: "/calendar",
+        element: <Calendar />
       },
       {
         path: "/team-overview",
