@@ -3,7 +3,7 @@ import useAxios from "../hooks/useAxios";
 import Activity from "../components/Activity";
 
 export default function Activities() {
-  useDocumentTitle({ title: "Activities" })
+  useDocumentTitle({ title: "Aktiviteter" })
   const { data, loading, error } = useAxios({ url: "http://localhost:4000/api/v1/activities" })
 
   return (

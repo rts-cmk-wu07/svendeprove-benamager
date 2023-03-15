@@ -3,7 +3,11 @@ import { useEffect } from "react";
 export default function useDocumentTitle({ title }) {
 
   useEffect(() => {
-    document.title = `Landrup Dans | ${title}`;
+    if (title) {
+      document.title = `Landrup Dans | ${title}`;
+    } else {
+      document.title = `Landrup Dans`;
+    }
   }, [title])
 
   return useDocumentTitle;
