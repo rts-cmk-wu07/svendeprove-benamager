@@ -4,6 +4,7 @@ import ShimmerLoading from "./ShimmerLoading";
 export default function Activity({ activityData, type }) {
   const navigate = useNavigate()
 
+  // navigate to details page and pass data along, this skips one fetch request
   function handlePress() {
     navigate(`/activity-details/${activityData.id}`, {
       state: { activityData }
