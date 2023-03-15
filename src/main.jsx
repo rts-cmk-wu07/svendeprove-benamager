@@ -12,6 +12,7 @@ import ActivityDetails from "./pages/ActivityDetails";
 import Search from "./pages/Search";
 import Calendar from "./pages/Calendar";
 import TeamOverview from "./pages/TeamOverview";
+import Register from "./pages/Register";
 import LogIn from "./pages/Login";
 import NotFound from "./pages/NotFound";
 
@@ -45,8 +46,12 @@ const router = createBrowserRouter([
         element: <TeamOverview />
       },
       {
-        path: "/log-in",
+        path: "/login",
         element: <LogIn />
+      },
+      {
+        path: "/register",
+        element: <Register />
       },
       {
         path: "*",

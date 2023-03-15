@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import { FiHome, FiSearch, FiCalendar } from "react-icons/fi"
 import { useLocation } from "react-router-dom";
 
-const hideOnThesePaths = ["/", "/log-in"]
+const hideOnThesePaths = ["/", "/login", "/register"]
 
 export default function Navigation() {
   const location = useLocation()
