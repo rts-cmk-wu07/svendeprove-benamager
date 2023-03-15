@@ -8,7 +8,7 @@ export default function TokenProvider({ children }) {
 
   useEffect(() => {
     if (!token) {
-      const tokenObject = getCookie("trainer-cookie")
+      const tokenObject = getCookie("tokenData")
       if (tokenObject) {
         setToken(JSON.parse(tokenObject))
       }
