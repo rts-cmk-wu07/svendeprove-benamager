@@ -3,6 +3,8 @@ import useAxios from "../hooks/useAxios";
 import { useEffect, useState } from "react";
 import ShimmerLoading from "../components/ShimmerLoading";
 import useDocumentTitle from "../hooks/useDocumentTitle";
+import useActivityParticipation from "../hooks/useActivityParticipation";
+import { RotatingLines } from "react-loader-spinner"
 
 export default function ActivityDetails() {
   const { state } = useLocation();
@@ -22,7 +24,9 @@ export default function ActivityDetails() {
   }, [data]);
 
   // Change document title to activity name
-  useDocumentTitle({ title: activityData ? activityData.name : null })
+  useDocumentTitle({ title: activityData?.name })
+
+  const { showBtn, btnText, disabled, loading: loadingParticipation, clickHandler } = useActivityParticipation({ activityData: activityData })
 
   return (
     <>
@@ -31,7 +35,20 @@ export default function ActivityDetails() {
         <section>
           <div className="h-[480px] grid">
             <img className="w-full h-full object-cover grid-area-1" src={activityData.asset.url} alt={activityData.name} />
-            <button className="grid-area-1 bg-primary self-end ml-auto mb-4 mr-5 text-white p-3 text-center w-[220px] rounded-xl text-base drop-shadow-xl">Tilmeld</button>
+            {showBtn &&
+              <button
+                disabled={disabled}
+                onClick={clickHandler}
+                className="grid-area-1 flex justify-center gap-3 bg-primary self-end ml-auto mb-4 mr-5 text-white p-3 text-center w-[220px] rounded-xl text-base drop-shadow-xl">
+                <span>{btnText}</span>
+                {loadingParticipation && <RotatingLines
+                  strokeColor="#EAEAEA"
+                  strokeWidth="5"
+                  animationDuration="0.75"
+                  width="20"
+                  visible={true}
+                />}
+              </button>}
           </div>
           <div className="mx-5 mt-4 text-white text-base">
             <h2 className="text-lg">{activityData.name}</h2>
