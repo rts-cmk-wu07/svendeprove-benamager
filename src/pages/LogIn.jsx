@@ -16,16 +16,7 @@ export default function LogIn() {
       <img src={splashImage} alt="Image of guy dancing made with splash paint." className="grid-area-1 h-full object-cover" />
       <div className="bg-[#5E2E5350] grid-area-1 w-full h-full scale-[133%] rotate-45"></div>
       <div className="self-center grid-area-1 mx-5 z-10 flex flex-col">
-        <h1 className="text-[48px] text-white mb-1 flex gap-3">Log ind
-          {loading &&
-            <RotatingLines
-              strokeColor="#E1A1E9"
-              strokeWidth="5"
-              animationDuration="0.75"
-              width="34"
-              visible={true}
-            />}
-        </h1>
+        <h1 className="text-[48px] text-white mb-1 flex gap-3">Log ind</h1>
         <Formik
           initialValues={{
             username: "",
@@ -63,8 +54,15 @@ export default function LogIn() {
               <button
                 type="submit"
                 disabled={loading}
-                className="bg-primary mx-auto max-w-[90%] text-white p-4 text-center rounded-2xl text-base inline-block w-full outline-none">
-                Log ind
+                className="bg-primary mx-auto max-w-[90%] text-white p-4 text-center rounded-2xl text-base w-full outline-none flex items-center justify-center gap-3">
+                <span>Log ind</span>
+                {loading && <RotatingLines
+                  strokeColor="#EAEAEA"
+                  strokeWidth="5"
+                  animationDuration="0.75"
+                  width="25"
+                  visible={true}
+                />}
               </button>
             </Form>
           )}
