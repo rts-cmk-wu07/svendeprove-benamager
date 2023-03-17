@@ -7,6 +7,7 @@ export default function TokenProvider({ children }) {
   const [token, setToken] = useState(null)
 
   useEffect(() => {
+
     if (!token) {
       const tokenObject = getCookie("tokenData")
       if (tokenObject) {

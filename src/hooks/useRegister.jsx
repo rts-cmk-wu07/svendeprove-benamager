@@ -2,50 +2,48 @@ import { useContext, useState } from "react";
 import { TokenContext } from "../contexts/TokenContext";
 import useCookie from "react-use-cookie";
 import axios from "axios";
+import useLogin from "./useLogin";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
 export default function useRegister() {
-  const { token, setToken } = useContext(TokenContext)
-  const [, setTokenDataCookie] = useCookie("tokenData", undefined)
+  const { token, setToken } = useContext(TokenContext);
+  const [, setTokenDataCookie] = useCookie("tokenData", undefined);
 
-  const [error, setError] = useState(null)
-  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const { handleLogin } = useLogin();
 
   async function handleRegister(registerObject) {
-    setLoading(true)
+    setLoading(true);
 
     try {
+      // creates new user
       const response = await axios.post(`${API_URL}/api/v1/users`, registerObject);
 
-      // If user clicked "remember me", save to cookie
-      if (registerObject.rememberMe) {
-        const milliseconds = response.data.validUntil - Date.now()
-        const validFor = milliseconds / (1000 * 60 * 60 * 24)
-
-        setTokenDataCookie(JSON.stringify(response.data), {
-          days: validFor,
-          SameSite: "Strict"
-        })
+      // when new user is created, login with same credentials
+      if (response.status === 200) {
+        await handleLogin({
+          username: registerObject.username,
+          password: registerObject.password,
+          rememberMe: registerObject.rememberMe,
+        });
       }
 
-      setToken(response.data)
-
     } catch (error) {
-
       // Error in registration data
       if (error.response) {
-        setError("Ugyldig registreringsdata.")
-        return
+        setError("Ugyldig registreringsdata.");
+        return;
       }
 
       // All other errors
-      setError("Intern serverfejl")
-
+      setError("Intern serverfejl");
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   }
 
-  return { handleRegister, error, loading }
+  return { handleRegister, error, loading };
 }

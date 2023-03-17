@@ -8,3 +8,12 @@ body {
   font-family: "Ubuntu", sans-serif;
   background-color: theme("colors.primary"); /* sets bg color from tailwind.config */
 }
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

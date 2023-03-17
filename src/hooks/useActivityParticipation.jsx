@@ -23,7 +23,7 @@ export default function useActivityParticipation({ activityData }) {
   const [disabled, setDisabled] = useState(false); // Added disabled state
 
   useEffect(() => {
-    if (!token || !userData) return;
+    if (!token || !userData || !activityData) return;
 
     const usersActivities = userData?.activities || [];
 
@@ -43,11 +43,11 @@ export default function useActivityParticipation({ activityData }) {
         if (getCurrentWeekday() !== activityData.weekday) {
           setCanJoin(true);
         } else {
-          setBtnText("SAMME DAG NEJ");
+          setBtnText("For sent");
           setError("Du kan ikke tilmelde dig på samme ugedag.");
         }
       } else {
-        setBtnText("IKKE GAMMEL NOK");
+        setBtnText("Udenfor aldersgrænsen..");
         setError("Du er udenfor aldersgrænsen.");
       }
     }
@@ -55,7 +55,6 @@ export default function useActivityParticipation({ activityData }) {
 
   async function clickHandler() {
     if (error) {
-      alert(error);
       return;
     }
 
