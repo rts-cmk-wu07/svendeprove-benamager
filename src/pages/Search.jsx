@@ -47,7 +47,7 @@ export default function Activities() {
           />
         }
         {value && filteredData.length === 0 && (
-          <p className="text-white">Der blev ikke fundet nogle aktiviteter. Prøv at søge efter noget andet.</p>
+          <p className="text-white text-base">Der blev ikke fundet nogle aktiviteter. Prøv at søge efter noget andet.</p>
         )}
         {value &&
           filteredData.map((activity) => (

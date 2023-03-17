@@ -14,7 +14,7 @@ export default function CalendarInstructor({ token }) {
 
   return (
     <ul className="flex flex-col gap-7">
-      {instructorClasses.length === 0 &&
+      {instructorClasses.length === 0 && loading &&
         <InfoCard
           icon={FiCalendar}
           className="mt-[125px]"
