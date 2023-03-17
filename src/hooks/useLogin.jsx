@@ -12,8 +12,7 @@ export default function useLogin() {
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
 
-  async function handleLogin(event, loginObject) {
-    event.preventDefault()
+  async function handleLogin(loginObject) {
     setLoading(true)
 
     try {

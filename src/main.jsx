@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client"
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./layouts/Layout";
 import TokenProvider from "./contexts/TokenContext";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 // pages
 import Welcome from "./pages/Welcome";
@@ -47,11 +48,17 @@ const router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <LogIn />
+        element:
+          <ProtectedRoute>
+            <LogIn />
+          </ProtectedRoute>
       },
       {
         path: "/register",
-        element: <Register />
+        element:
+          <ProtectedRoute>
+            <Register />
+          </ProtectedRoute>
       },
       {
         path: "*",
