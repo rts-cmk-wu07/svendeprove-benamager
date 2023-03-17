@@ -3,6 +3,8 @@ import { TokenContext } from "../contexts/TokenContext";
 import { useContext } from "react";
 import useAxios from "../hooks/useAxios";
 import { useParams } from "react-router-dom";
+import InfoCard from "../components/InfoCard";
+import { FiCalendar } from "react-icons/fi";
 
 export default function ActivityOverview() {
   const { activityId } = useParams()
@@ -17,6 +19,16 @@ export default function ActivityOverview() {
     <div className="mx-5 mt-5 mb-[100px]">
       <h1 className="text-xl text-white mb-5 text-ellipsis whitespace-nowrap overflow-hidden">{data?.name}</h1>
       <ul>
+        {activityUsers.length === 0 &&
+          <InfoCard
+            icon={FiCalendar}
+            className="mt-[125px]"
+            title="Ingen elever i din klasse"
+            description="Det var ærgeligt"
+            linkText="Se kalender"
+            linkTo="/calendar"
+          />
+        }
         {activityUsers.map(user => <li className="text-base text-white">{user.username}</li>)}
       </ul>
     </div>

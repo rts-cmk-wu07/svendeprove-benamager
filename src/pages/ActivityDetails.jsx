@@ -52,7 +52,7 @@ export default function ActivityDetails() {
           </div>
           <div className="mx-5 mt-4 text-white text-base">
             <h2 className="text-lg">{activityData.name}</h2>
-            <p className="mb-3">{activityData.minAge}-{activityData.maxAge} år</p>
+            <p className="mb-3"><span className="capitalize">{activityData.weekday}</span> | {activityData.minAge}-{activityData.maxAge} år</p>
             <p>{activityData.description}</p>
           </div>
         </section>
