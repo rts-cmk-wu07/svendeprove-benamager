@@ -20,6 +20,9 @@ Nuværende reposotory indenholder kun front-end delen. Du skal derfor også brug
 ## Valgfrie opgave
 C - Cookies, jeg har valgt denne, da den var rimelig ligetil at implementere i min useLogin hook. Forklaring på den er nedenunder :)
 
+## Design ændringer
+Jeg har valgt at tilføje en log in / log ud element til navigations baren, da dette gør det hele lidt nemmere for brugeren.
+
 ## Kode eksempler
 
 #### useLogin, custom hook
