@@ -5,5 +5,5 @@ import { TokenContext } from "../contexts/TokenContext";
 export default function ProtectedRoute({ children }) {
   const { token } = useContext(TokenContext)
 
-  return !token ? children : <Navigate to="/activities" />
+  return !token ? children : <Navigate to="/calendar" />
 }

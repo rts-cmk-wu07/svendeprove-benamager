@@ -5,6 +5,8 @@ import ShimmerLoading from "../components/ShimmerLoading";
 import useDocumentTitle from "../hooks/useDocumentTitle";
 import useActivityParticipation from "../hooks/useActivityParticipation";
 import { RotatingLines } from "react-loader-spinner"
+import InfoCard from "../components/InfoCard";
+import { BiErrorAlt } from "react-icons/bi"
 
 export default function ActivityDetails() {
   const { state } = useLocation();
@@ -14,7 +16,7 @@ export default function ActivityDetails() {
   const [activityData, setActivityData] = useState(state?.activityData || null);
 
   // Fetch data if locationActivityData is not present
-  const { data, loading } = useAxios({
+  const { data, loading, error } = useAxios({
     url: !activityData ? `http://localhost:4000/api/v1/activities/${activityId}` : null,
   });
 
@@ -31,6 +33,16 @@ export default function ActivityDetails() {
   return (
     <>
       {loading && <ShimmerLoading className="h-[480px]" />}
+      {error &&
+        <InfoCard
+          icon={BiErrorAlt}
+          className="mt-[200px] mx-3"
+          title="Ikke fundet"
+          description="Aktiviteten du leder efter blev ikke fundet..."
+          linkText="Gå tilbage"
+          linkTo="/activities"
+        />
+      }
       {activityData && (
         <section>
           <div className="h-[480px] grid">
