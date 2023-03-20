@@ -6,10 +6,14 @@ import { useParams } from "react-router-dom";
 import InfoCard from "../components/InfoCard";
 import { FiCalendar } from "react-icons/fi";
 import { BiErrorAlt } from "react-icons/bi"
+import { useNavigate } from "react-router-dom";
 
 export default function ActivityOverview() {
   const { activityId } = useParams()
   const { token } = useContext(TokenContext)
+  const navigate = useNavigate()
+
+  if (token?.role !== "instructor") navigate("/activities")
 
   const { data, loading, error } = useAxios({ url: `http://localhost:4000/api/v1/activities/${activityId}` })
   useDocumentTitle({ title: data ? data.name : null })
