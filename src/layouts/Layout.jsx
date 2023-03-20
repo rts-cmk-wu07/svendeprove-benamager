@@ -11,10 +11,10 @@ export default function Layout() {
         <Navigation />
         <motion.main
           key={location.key}
-          initial={{ x: "50%", opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          exit={{ x: "-50%", opacity: 0 }}
-          transition={{ duration: 0.3 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.4 }}
           className="w-full"
         >
           <Outlet />

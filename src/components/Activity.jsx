@@ -16,7 +16,7 @@ export default function Activity({ activityData, type }) {
       {type === "loading" ?
         <ShimmerLoading className="rounded-[39px_39px_0_39px] overflow-hidden w-full h-[350px] opacity-50" /> :
         <article onClick={handlePress} className="grid rounded-[39px_39px_0_39px] overflow-hidden w-full cursor-pointer h-[350px]">
-          <img src={activityData.asset.url} alt="" className="grid-area-1 shadow-lg object-cover h-full w-full" />
+          <img src={activityData.asset.url} alt="" className="grid-area-1 shadow-lg object-cover h-full w-full max-h-[350px]" />
           <div className="grid-area-1 self-end bg-secondary bg-opacity-80 py-4 pl-7 text-base">
             <h2>{activityData.name}</h2>
             <span>{activityData.minAge}-{activityData.maxAge} år</span>
